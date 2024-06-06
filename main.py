@@ -14,7 +14,7 @@ part = (part + 1) % 6
 
 print(datetime.datetime.now())
 
-while  part == math.floor(datetime.datetime.now().hour / 6) + 1:
+while  part == math.floor(datetime.datetime.now().hour / 6):
     pass
 
 print("終了:" +  datetime.datetime.now().strftime('%Y年%m月%d日 %H:%M:%S'))
