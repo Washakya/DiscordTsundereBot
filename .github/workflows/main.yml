@@ -1,0 +1,25 @@
+name: DiscordTsundereBot
+
+on:
+  schedule:
+    #- cron: '0 3,7,11,15,19,23 * * *'
+  workflow_dispatch:
+
+jobs:
+  tweet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+          architecture: 'x64'
+        env:
+          AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
+      - name: Get Python version
+        run: python -V
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Python
+        run: python main.py
