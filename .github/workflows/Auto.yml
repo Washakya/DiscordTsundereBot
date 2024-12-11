@@ -1,0 +1,19 @@
+name: AutoCommit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * fri'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          date > LastCommit.txt
+          git config user.name  "washakya"
+          git config user.email "86008644+Washakya@users.noreply.github.com"
+          git add .
+          git commit -m "generated"
+          git push
