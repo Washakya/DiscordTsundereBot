@@ -4,7 +4,12 @@ on:
   schedule:
     - cron: '0 3,7,11,15,19,23 * * *'
   workflow_dispatch:
-
+  
+env:
+  Gemini_API_KEY: ${{secrets.GEMINI_API_KEY}}
+  Discord_TsundereBot_API: ${{secrets.DISCORD_TSUNDEREBOT_API}}
+  Discord_TsundereBot_System_Channel: ${{secrets.DISCORD_TSUNDEREBOT_SYSTEM_CHANNEL}}
+  
 jobs:
   server:
     runs-on: ubuntu-latest
