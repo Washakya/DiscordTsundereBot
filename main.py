@@ -19,7 +19,7 @@ part = (math.floor(datetime.datetime.now().hour / 4) + 1) % 6
 #設定ファイルの読み込み
 def load_character(d = "prompt"):
 
-    with open(os.path.dirname(__file__) + "\\" + d + ".txt", "r", encoding="utf-8") as f:
+    with open(os.path.dirname(__file__) + "/" + d + ".txt", "r", encoding="utf-8") as f:
         return f.read()
     
 prompt = load_character()
