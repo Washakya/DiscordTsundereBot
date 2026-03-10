@@ -46,15 +46,21 @@ SYSTEM_CHANNEL_ID = os.getenv("Discord_TsundereBot_System_Channel")
 
 #Geminiオブジェクト作成
 genai.configure(api_key=GEMINI_API)
-model = genai.GenerativeModel("gemini-3-flash-preview")
+model = genai.GenerativeModel("models/gemini-2.5-flash")
 chat = model.start_chat(history=[])
 
 #ツンデレっぽい返しをしてくれる関数
 def tsundere_response(text):
     if chat.history == []:
-        return chat.send_message(prompt + text, safety_settings=gemini_settings.safety_settings).text
+        return chat.send_message(
+        prompt + text,
+        safety_settings=gemini_settings.safety_settings,
+        generation_config=gemini_settings.config).text
     else:
-        return chat.send_message(text, safety_settings=gemini_settings.safety_settings).text
+        return chat.send_message(
+        text,
+        safety_settings=gemini_settings.safety_settings,
+        generation_config=gemini_settings.config).text
 
 #おまけのwikipediaランダム記事タイトル
 def wiki():
@@ -142,5 +148,6 @@ async def on_message(message):
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
+
 
 
