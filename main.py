@@ -87,7 +87,7 @@ async def on_ready():
              await channel.send(part)
     print("ログインしました")
 
-@client.tree.command(name="reset_cash", description="Botの会話ログキャッシュをリセットします") 
+@client.tree.command(name="reset_cash_all", description="Botのすべての会話ログキャッシュをリセットします") 
 @app_commands.default_permissions(administrator=True)
 async def test(interaction: discord.Interaction): 
     chat.history = []
@@ -142,4 +142,5 @@ async def on_message(message):
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
+
 
