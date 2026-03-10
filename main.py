@@ -46,7 +46,7 @@ SYSTEM_CHANNEL_ID = os.getenv("Discord_TsundereBot_System_Channel")
 
 #Geminiオブジェクト作成
 genai.configure(api_key=GEMINI_API)
-model = genai.GenerativeModel("gemini-2.0-flash")
+model = genai.GenerativeModel("gemini-3-flash-preview")
 chat = model.start_chat(history=[])
 
 #ツンデレっぽい返しをしてくれる関数
@@ -142,3 +142,4 @@ async def on_message(message):
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
+
