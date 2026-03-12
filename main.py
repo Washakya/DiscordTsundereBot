@@ -34,7 +34,7 @@ class gemini_settings:
         { "category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"}
     ]
     config = {
-        "max_output_tokens": 512,
+        "max_output_tokens": 1024,
         "temperature": 1,
         "top_p": 1
     }
@@ -148,6 +148,7 @@ async def on_message(message):
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
+
 
 
 
